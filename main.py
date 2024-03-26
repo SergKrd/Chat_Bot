@@ -1,6 +1,7 @@
 import telebot
+from environs import Env
 
-bot = telebot.TeleBot("7170034100:AAGWuoTvMLck5xTCApr6ysh_ILQ1rwD7kkM")
+bot = telebot.TeleBot("token")
 
 
 @bot.message_handler(commands=['start', 'help'])
