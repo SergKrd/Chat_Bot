@@ -1,7 +1,14 @@
 import telebot
-from environs import Env
+import configparser
 
-bot = telebot.TeleBot("token")
+# Создание объекта ConfigParser
+config = configparser.ConfigParser()
+# Чтение файла конфигурации
+config.read('config.ini')
+# Получение значений из конфигурационного файла
+BotToken = config['bot']['TOKEN']
+
+bot = telebot.TeleBot(BotToken)
 
 
 @bot.message_handler(commands=['start', 'help'])
@@ -12,7 +19,6 @@ def send_welcome(message):
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     bot.reply_to(message, message.text)
-
 
 
 bot.infinity_polling()
