@@ -4,6 +4,10 @@ from configparser import ConfigParser
 import psycopg2
 
 def bot_token():
+    '''
+    Получение токена бота
+    :return: токен бота
+    '''
 
     config = ConfigParser()
     config.read('config.ini')
